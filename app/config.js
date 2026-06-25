@@ -27,7 +27,7 @@ export const config = {
       name: "Reel Fuel Creator Kit",
       blurb: "Strategy, hooks, prompts & captions to plan content faster.",
       priceIndia: "₹189",
-      priceGlobal: "$6",
+      priceGlobal: "$7",
       highlight: false,
       badge: null,
       features: [
@@ -39,15 +39,15 @@ export const config = {
         "Weak hook vs strong hook examples",
       ],
       // India = Razorpay, Global = Payhip
-      indiaUrl: "https://razorpay.me/@REELFUELKIT",
-      globalUrl: "https://payhip.com/b/nRIMp",
+      indiaUrl: "https://rzp.io/rzp/VKHKZYFg",
+      globalUrl: "#", // TODO: replace with Creator Kit Global Payhip link
     },
     {
       id: "reels-bundle",
       name: "5000+ Reels Bundle",
       blurb: "A massive library of ready-to-edit video assets.",
       priceIndia: "₹149",
-      priceGlobal: "$6",
+      priceGlobal: "$7",
       highlight: false,
       badge: null,
       features: [
@@ -58,8 +58,8 @@ export const config = {
         "Cat and animal reels",
         "Background clips for Instagram Reels and YouTube Shorts",
       ],
-      indiaUrl: "https://razorpay.me/@REELFUELKIT", // TODO: replace with Reels Bundle India link
-      globalUrl: "https://payhip.com/b/PLACEHOLDER", // TODO: replace with Reels Bundle Global link
+      indiaUrl: "https://rzp.io/rzp/yth7uyrV",
+      globalUrl: "#", // TODO: replace with Reels Bundle Global Payhip link
     },
     {
       id: "combo",
@@ -75,8 +75,8 @@ export const config = {
         "Bonus Drive access",
         "All hooks, prompts, captions, ideas, and video assets in one bundle",
       ],
-      indiaUrl: "https://razorpay.me/@REELFUELKIT", // TODO: replace with Combo India link
-      globalUrl: "https://payhip.com/b/PLACEHOLDER", // TODO: replace with Combo Global link
+      indiaUrl: "https://rzp.io/rzp/bzac8xR",
+      globalUrl: "#", // TODO: replace with Combo Global Payhip link
     },
   ],
 };
