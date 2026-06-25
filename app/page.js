@@ -6,21 +6,15 @@ import { config } from "@/app/config";
 const ctaNote =
   "Choose India if you pay via UPI/cards in India. Choose Global for international checkout.";
 
-const deliveryNote =
-  "After payment, you’ll receive early access instructions and the full kit delivery link when it launches.";
-
-const statusNote =
-  "Current status: Early access. Full kit delivery will be shared with buyers at launch.";
-
 const pickerNote =
   "Choose the Creator Kit for strategy, the Reels Bundle for video assets, or the Combo for everything.";
 
 const steps = [
-  "Buy early access",
-  "Get launch access",
-  "Copy hooks, prompts, captions, ideas, or video assets",
-  "Customize for your niche",
-  "Post faster with less overthinking",
+  "Choose your bundle",
+  "Complete checkout",
+  "Get the product access instructions",
+  "Use hooks, prompts, captions, ideas, or video assets",
+  "Customize for your niche and start posting",
 ];
 
 const audience = [
@@ -39,11 +33,21 @@ const audience = [
   "Personal brands",
 ];
 
+const reelsCategories = [
+  "Money motivation reels",
+  "AI-generated reels",
+  "Football-style reels",
+  "Luxury and wealth reels",
+  "Cat and animal reels",
+  "Background clips for reels and shorts",
+];
+
 const disclaimers = [
   "This is a digital product. No physical product will be shipped.",
   "We do not guarantee views, followers, monetization, platform approval, or earnings.",
   "Results depend on your niche, editing, consistency, captions, hooks, and execution.",
   "Users are responsible for ensuring they have the rights to post any asset on their platform.",
+  "Bonus/video assets are provided for creator use and editing inspiration.",
 ];
 
 function SectionHeading({ kicker, children }) {
@@ -57,6 +61,16 @@ function SectionHeading({ kicker, children }) {
       <h2 className="text-balance text-3xl font-extrabold leading-tight sm:text-4xl">
         {children}
       </h2>
+    </div>
+  );
+}
+
+function OfferGrid({ compact = false }) {
+  return (
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {config.products.map((product) => (
+        <ProductCard key={product.id} product={product} compact={compact} />
+      ))}
     </div>
   );
 }
@@ -78,14 +92,7 @@ export default function Page() {
       <section className="relative mx-auto flex max-w-6xl flex-col items-center px-5 pt-12 pb-16 text-center sm:pt-16">
         <Logo imgClassName="h-24 w-24 animate-floaty object-contain sm:h-28 sm:w-28" />
 
-        <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-flame/40 bg-flame/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-flame">
-          <span className="h-2 w-2 animate-pulseGlow rounded-full bg-flame" />
-          Early Access Now Open
-        </span>
-
-        <p className="mt-4 text-sm font-medium text-white/50">{config.brand.domain}</p>
-
-        <h1 className="mt-4 max-w-4xl text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
+        <h1 className="mt-8 max-w-4xl text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
           Start posting reels today with hooks, prompts, captions, and{" "}
           <span className="text-gradient">5000+ ready-to-edit video assets.</span>
         </h1>
@@ -96,25 +103,64 @@ export default function Page() {
           massive reels asset bundle.
         </p>
 
-        <p className="mt-6 inline-flex max-w-xl items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs text-white/70">
-          <span className="h-1.5 w-1.5 rounded-full bg-flame" />
-          {statusNote}
+        <p className="mt-4 max-w-2xl text-pretty text-sm font-medium text-white/60">
+          {pickerNote}
         </p>
 
-        <div className="mt-8 flex w-full max-w-md flex-col gap-3">
-          <a
-            href="#pricing"
-            className="inline-flex w-full items-center justify-center rounded-2xl bg-fire px-6 py-4 text-base font-bold text-black shadow-glow transition-transform duration-200 hover:-translate-y-0.5 sm:text-lg"
-          >
-            See pricing &amp; offers
-          </a>
-          <p className="text-xs text-white/50">{deliveryNote}</p>
+        {/* 3 offers right in the hero */}
+        <div className="mt-10 w-full max-w-5xl">
+          <OfferGrid compact />
+          <p className="mt-5 text-xs text-white/50">{ctaNote}</p>
         </div>
 
         <p className="mt-8 max-w-xl text-sm text-white/50">
           Built for creators, niche pages, freelancers, coaches, and small
           businesses.
         </p>
+      </section>
+
+      {/* ===================== PRICING / OFFERS ===================== */}
+      <section id="pricing" className="mx-auto max-w-6xl scroll-mt-8 px-5 py-16">
+        <SectionHeading kicker="Pick Your Bundle">Choose your offer</SectionHeading>
+
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/60">
+          {pickerNote}
+        </p>
+
+        <div className="mt-12">
+          <OfferGrid />
+        </div>
+
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-white/50">
+          {ctaNote}
+        </p>
+      </section>
+
+      {/* ===================== 5000+ REELS BUNDLE ===================== */}
+      <section className="mx-auto max-w-6xl px-5 py-16">
+        <div className="rounded-3xl border border-flame/25 bg-gradient-to-b from-flame/[0.08] to-transparent p-7 sm:p-10">
+          <SectionHeading kicker="Video Assets">
+            5000+ Ready-to-Edit Reels Bundle
+          </SectionHeading>
+
+          <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-white/70">
+            Get a massive collection of short-form video assets made to help you
+            start creating faster. Use them as backgrounds, inspiration, edits,
+            or niche content assets for Instagram Reels and YouTube Shorts.
+          </p>
+
+          <ul className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
+            {reelsCategories.map((cat) => (
+              <li
+                key={cat}
+                className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/80"
+              >
+                <span className="mt-0.5 text-flame">▸</span>
+                {cat}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       {/* ===================== START FROM ZERO ===================== */}
@@ -127,26 +173,6 @@ export default function Page() {
           gives you hooks, prompts, captions, ideas, and ready-to-edit video
           assets so you can start creating faster.
         </p>
-      </section>
-
-      {/* ===================== PRICING / OFFERS ===================== */}
-      <section id="pricing" className="mx-auto max-w-6xl scroll-mt-8 px-5 py-16">
-        <SectionHeading kicker="Pick Your Kit">Choose your offer</SectionHeading>
-
-        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/60">
-          {pickerNote}
-        </p>
-
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {config.products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-
-        <div className="mx-auto mt-8 max-w-2xl text-center">
-          <p className="text-xs text-white/50">{ctaNote}</p>
-          <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
-        </div>
       </section>
 
       {/* ===================== PROBLEM ===================== */}
@@ -179,10 +205,6 @@ export default function Page() {
             </li>
           ))}
         </ol>
-
-        <p className="mt-8 text-center text-sm font-semibold text-flame">
-          Early access buyers get the launch offer first.
-        </p>
       </section>
 
       {/* ===================== WHO IT'S FOR ===================== */}
@@ -204,7 +226,7 @@ export default function Page() {
       </section>
 
       {/* ===================== FINAL CTA ===================== */}
-      <section className="mx-auto max-w-4xl px-5 py-16">
+      <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="relative overflow-hidden rounded-3xl border border-flame/30 bg-gradient-to-b from-flame/[0.12] to-transparent p-8 text-center sm:p-12">
           <div
             aria-hidden
@@ -214,18 +236,12 @@ export default function Page() {
             Ready to <span className="text-gradient">fuel your next reel?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-white/70">
-            Pick the Creator Kit, the Reels Bundle, or the Best Value Combo and
-            start creating faster today.
+            Choose your bundle and start building content faster today.
           </p>
 
-          <div className="mx-auto mt-8 flex max-w-md flex-col gap-3">
-            <a
-              href="#pricing"
-              className="inline-flex w-full items-center justify-center rounded-2xl bg-fire px-6 py-4 text-base font-bold text-black shadow-glow transition-transform duration-200 hover:-translate-y-0.5 sm:text-lg"
-            >
-              See pricing &amp; offers
-            </a>
-            <p className="text-xs text-white/50">{deliveryNote}</p>
+          <div className="mt-10">
+            <OfferGrid compact />
+            <p className="mt-5 text-xs text-white/60">{ctaNote}</p>
           </div>
         </div>
 
@@ -243,7 +259,6 @@ export default function Page() {
           <Logo imgClassName="h-12 w-12 object-contain" />
           <div className="text-sm text-white/70">
             <p className="font-bold text-white">{config.brand.name}</p>
-            <p className="mt-1">{config.brand.domain}</p>
             <a
               href={config.brand.instagramUrl}
               target="_blank"

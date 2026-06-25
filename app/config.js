@@ -6,7 +6,6 @@
 export const config = {
   brand: {
     name: "Reel Fuel Kit",
-    domain: "reelfuelkit.com",
     instagram: "@reelfuelkit",
     instagramUrl: "https://instagram.com/reelfuelkit",
   },
@@ -17,9 +16,8 @@ export const config = {
 
   // -----------------------------------------------------------
   //  PRODUCTS / PRICING
-  //  Each product has an India link + a Global link.
-  //  Replace the PLACEHOLDER_* links with your real
-  //  Razorpay (India) and Payhip (Global) links per product.
+  //  Each product has an India link (Razorpay) + a Global link (Payhip).
+  //  Edit prices and links here — this is the only place to change them.
   // -----------------------------------------------------------
   products: [
     {
@@ -40,7 +38,7 @@ export const config = {
       ],
       // India = Razorpay, Global = Payhip
       indiaUrl: "https://rzp.io/rzp/VKHKZYFg",
-      globalUrl: "#", // TODO: replace with Creator Kit Global Payhip link
+      globalUrl: "https://payhip.com/b/gVa7k",
     },
     {
       id: "reels-bundle",
@@ -59,16 +57,17 @@ export const config = {
         "Background clips for Instagram Reels and YouTube Shorts",
       ],
       indiaUrl: "https://rzp.io/rzp/yth7uyrV",
-      globalUrl: "#", // TODO: replace with Reels Bundle Global Payhip link
+      globalUrl: "https://payhip.com/b/4wqxF",
     },
     {
       id: "combo",
       name: "Best Value Combo",
       blurb: "Everything — strategy + assets + bonus drive in one bundle.",
       priceIndia: "₹299",
-      priceGlobal: "$9",
+      priceGlobal: "$9.99",
       highlight: true,
       badge: "Best Value",
+      highlightText: "Get everything in one bundle",
       features: [
         "Reel Fuel Creator Kit",
         "5000+ Reels Bundle",
@@ -76,7 +75,7 @@ export const config = {
         "All hooks, prompts, captions, ideas, and video assets in one bundle",
       ],
       indiaUrl: "https://rzp.io/rzp/bzac8xR",
-      globalUrl: "#", // TODO: replace with Combo Global Payhip link
+      globalUrl: "https://payhip.com/b/jdVLT",
     },
   ],
 };

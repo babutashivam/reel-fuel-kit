@@ -1,6 +1,7 @@
 // Single pricing card. Renders features + India/Global pay buttons.
 // `product` comes from config.products in app/config.js.
-export default function ProductCard({ product }) {
+// `compact` hides the blurb + feature list (used in hero / final CTA).
+export default function ProductCard({ product, compact = false }) {
   const isHighlight = product.highlight;
 
   return (
@@ -19,7 +20,8 @@ export default function ProductCard({ product }) {
       ) : null}
 
       <h3 className="text-xl font-extrabold text-white">{product.name}</h3>
-      {product.blurb ? (
+
+      {!compact && product.blurb ? (
         <p className="mt-2 text-sm leading-relaxed text-white/60">{product.blurb}</p>
       ) : null}
 
@@ -28,14 +30,22 @@ export default function ProductCard({ product }) {
         <span className="text-sm text-white/50">/ {product.priceGlobal} global</span>
       </div>
 
-      <ul className="mt-6 flex-1 space-y-3">
-        {product.features.map((f) => (
-          <li key={f} className="flex items-start gap-3 text-sm text-white/80">
-            <span className="mt-0.5 shrink-0 text-flame">✓</span>
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
+      {product.highlightText ? (
+        <p className="mt-3 text-sm font-semibold text-flame">{product.highlightText}</p>
+      ) : null}
+
+      {!compact ? (
+        <ul className="mt-6 flex-1 space-y-3">
+          {product.features.map((f) => (
+            <li key={f} className="flex items-start gap-3 text-sm text-white/80">
+              <span className="mt-0.5 shrink-0 text-flame">✓</span>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="flex-1" />
+      )}
 
       <div className="mt-7 flex flex-col gap-3">
         <a
