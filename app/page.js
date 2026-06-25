@@ -6,6 +6,8 @@ import { config } from "@/app/config";
 const ctaNote =
   "Choose India if you pay via UPI/cards in India. Choose Global for international checkout.";
 
+const deliveryNote = "After payment, you’ll receive product access instructions.";
+
 const pickerNote =
   "Choose the Creator Kit for strategy, the Reels Bundle for video assets, or the Combo for everything.";
 
@@ -111,6 +113,7 @@ export default function Page() {
         <div className="mt-10 w-full max-w-5xl">
           <OfferGrid compact />
           <p className="mt-5 text-xs text-white/50">{ctaNote}</p>
+          <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
         </div>
 
         <p className="mt-8 max-w-xl text-sm text-white/50">
@@ -133,6 +136,9 @@ export default function Page() {
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-white/50">
           {ctaNote}
+        </p>
+        <p className="mx-auto mt-2 max-w-2xl text-center text-xs text-white/50">
+          {deliveryNote}
         </p>
       </section>
 
@@ -242,6 +248,7 @@ export default function Page() {
           <div className="mt-10">
             <OfferGrid compact />
             <p className="mt-5 text-xs text-white/60">{ctaNote}</p>
+            <p className="mt-2 text-xs text-white/60">{deliveryNote}</p>
           </div>
         </div>
 

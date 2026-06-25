@@ -7,14 +7,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://reelfuelkit.com";
-
 const title = "Reel Fuel Kit — Hooks, Prompts & 5000+ Reels Bundle";
 const description =
   "Get Reel Fuel Kit with viral-style hooks, ChatGPT prompts, captions, content ideas, and 5000+ ready-to-edit video assets for Instagram Reels and YouTube Shorts.";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
   title,
   description,
   keywords: [
@@ -29,12 +26,8 @@ export const metadata = {
     "video assets",
     "content ideas",
   ],
-  alternates: {
-    canonical: siteUrl,
-  },
   openGraph: {
     type: "website",
-    url: siteUrl,
     siteName: "Reel Fuel Kit",
     title,
     description,
