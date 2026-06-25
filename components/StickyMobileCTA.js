@@ -11,7 +11,7 @@ export default function StickyMobileCTA() {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl bg-fire px-3 py-3 text-center text-sm font-bold text-black shadow-glow-sm"
         >
-          🇮🇳 ₹189
+          🇮🇳 India ₹189
         </a>
         <a
           href={config.links.global}
@@ -19,7 +19,7 @@ export default function StickyMobileCTA() {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-white/20 bg-white/5 px-3 py-3 text-center text-sm font-bold text-white"
         >
-          🌍 $5
+          🌍 Global $5
         </a>
       </div>
     </div>

@@ -6,6 +6,12 @@ import { config } from "@/app/config";
 const ctaNote =
   "Choose India if you pay via UPI/cards in India. Choose Global for international checkout.";
 
+const deliveryNote =
+  "After payment, you’ll receive early access instructions and the full kit delivery link when it launches.";
+
+const statusNote =
+  "Current status: Early access. Full kit delivery will be shared with buyers at launch.";
+
 const kit = [
   {
     title: "500 Viral-Style Hooks",
@@ -43,9 +49,9 @@ const bonusCategories = [
 
 const steps = [
   "Buy early access",
-  "Get access when the full kit launches",
-  "Copy a hook, prompt, caption, idea, or video asset",
-  "Customize it for your niche",
+  "Get launch access",
+  "Copy hooks, prompts, captions, ideas, or video assets",
+  "Customize for your niche",
   "Post faster with less overthinking",
 ];
 
@@ -110,14 +116,26 @@ export default function Page() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg">
-          Get hooks, ChatGPT prompts, captions, ready-to-post video assets, and
+          Get hooks, ChatGPT prompts, captions, ready-to-edit video assets, and
           content ideas built for creators who want to post faster and make
           better short-form content.
         </p>
 
+        <p className="mt-4 max-w-2xl text-pretty text-sm font-medium text-white/60">
+          Everything you need to create reels faster — hooks, prompts, captions,
+          ideas, and bonus video assets in one kit.
+        </p>
+
+        <p className="mt-6 inline-flex max-w-xl items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs text-white/70">
+          <span className="h-1.5 w-1.5 rounded-full bg-flame" />
+          {statusNote}
+        </p>
+
         <div className="mt-8 w-full max-w-xl">
+          <p className="mb-3 text-sm font-semibold text-white">Choose your checkout:</p>
           <CTAButtons />
           <p className="mt-3 text-xs text-white/50">{ctaNote}</p>
+          <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
         </div>
 
         <p className="mt-8 max-w-xl text-sm text-white/50">
@@ -151,13 +169,13 @@ export default function Page() {
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="rounded-3xl border border-flame/25 bg-gradient-to-b from-flame/[0.08] to-transparent p-7 sm:p-10">
           <SectionHeading kicker="Included Free">
-            Free Bonus: Ready-to-Post Video Assets
+            Free Bonus: Ready-to-Edit Video Assets
           </SectionHeading>
 
           <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-white/70">
             Along with the Creator Kit, early access buyers will also get access
-            to a bonus Google Drive folder with ready-to-post and ready-to-edit
-            short-form video assets.
+            to a bonus Google Drive folder with ready-to-edit short-form video
+            assets.
           </p>
 
           <ul className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
@@ -259,8 +277,10 @@ export default function Page() {
           </p>
 
           <div className="mx-auto mt-8 max-w-xl">
+            <p className="mb-3 text-sm font-semibold text-white">Choose your checkout:</p>
             <CTAButtons />
             <p className="mt-3 text-xs text-white/50">{ctaNote}</p>
+            <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
           </div>
         </div>
 
