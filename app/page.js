@@ -1,5 +1,5 @@
 import Logo from "@/components/Logo";
-import CTAButtons from "@/components/CTAButtons";
+import ProductCard from "@/components/ProductCard";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { config } from "@/app/config";
 
@@ -12,40 +12,8 @@ const deliveryNote =
 const statusNote =
   "Current status: Early access. Full kit delivery will be shared with buyers at launch.";
 
-const kit = [
-  {
-    title: "500 Viral-Style Hooks",
-    body: "Scroll-stopping opening lines for reels, shorts, ads, and creator posts.",
-  },
-  {
-    title: "200 ChatGPT Prompts",
-    body: "Copy-paste prompts for ideas, scripts, captions, thumbnails, and content planning.",
-  },
-  {
-    title: "100 Ready Captions",
-    body: "Caption starters and CTA lines you can quickly customize.",
-  },
-  {
-    title: "30-Day Content Calendar",
-    body: "A simple posting plan so you always know what to create next.",
-  },
-  {
-    title: "50 Niche Reel Ideas",
-    body: "Content ideas for creators, businesses, coaches, freelancers, and theme pages.",
-  },
-  {
-    title: "Bonus: Weak Hook vs Strong Hook",
-    body: "Learn how to turn boring content into clickable content.",
-  },
-];
-
-const bonusCategories = [
-  "AI-generated cat videos",
-  "AI-generated short-form clips",
-  "Luxury, wealth, and rich lifestyle style videos",
-  "Creator-friendly reel and shorts assets",
-  "Extra visual assets for Instagram Reels and YouTube Shorts",
-];
+const pickerNote =
+  "Choose the Creator Kit for strategy, the Reels Bundle for video assets, or the Combo for everything.";
 
 const steps = [
   "Buy early access",
@@ -69,6 +37,13 @@ const audience = [
   "Luxury pages",
   "Cat pages",
   "Personal brands",
+];
+
+const disclaimers = [
+  "This is a digital product. No physical product will be shipped.",
+  "We do not guarantee views, followers, monetization, platform approval, or earnings.",
+  "Results depend on your niche, editing, consistency, captions, hooks, and execution.",
+  "Users are responsible for ensuring they have the rights to post any asset on their platform.",
 ];
 
 function SectionHeading({ kicker, children }) {
@@ -111,19 +86,14 @@ export default function Page() {
         <p className="mt-4 text-sm font-medium text-white/50">{config.brand.domain}</p>
 
         <h1 className="mt-4 max-w-4xl text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-          Stop staring at a blank screen.{" "}
-          <span className="text-gradient">Start posting better reels today.</span>
+          Start posting reels today with hooks, prompts, captions, and{" "}
+          <span className="text-gradient">5000+ ready-to-edit video assets.</span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg">
-          Get hooks, ChatGPT prompts, captions, ready-to-edit video assets, and
-          content ideas built for creators who want to post faster and make
-          better short-form content.
-        </p>
-
-        <p className="mt-4 max-w-2xl text-pretty text-sm font-medium text-white/60">
-          Everything you need to create reels faster — hooks, prompts, captions,
-          ideas, and bonus video assets in one kit.
+          Reel Fuel Kit gives creators everything they need to start from zero:
+          viral-style hooks, ChatGPT prompts, captions, content ideas, and a
+          massive reels asset bundle.
         </p>
 
         <p className="mt-6 inline-flex max-w-xl items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs text-white/70">
@@ -131,11 +101,14 @@ export default function Page() {
           {statusNote}
         </p>
 
-        <div className="mt-8 w-full max-w-xl">
-          <p className="mb-3 text-sm font-semibold text-white">Choose your checkout:</p>
-          <CTAButtons />
-          <p className="mt-3 text-xs text-white/50">{ctaNote}</p>
-          <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
+        <div className="mt-8 flex w-full max-w-md flex-col gap-3">
+          <a
+            href="#pricing"
+            className="inline-flex w-full items-center justify-center rounded-2xl bg-fire px-6 py-4 text-base font-bold text-black shadow-glow transition-transform duration-200 hover:-translate-y-0.5 sm:text-lg"
+          >
+            See pricing &amp; offers
+          </a>
+          <p className="text-xs text-white/50">{deliveryNote}</p>
         </div>
 
         <p className="mt-8 max-w-xl text-sm text-white/50">
@@ -144,67 +117,35 @@ export default function Page() {
         </p>
       </section>
 
-      {/* ===================== WHAT YOU GET ===================== */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <SectionHeading kicker="The Creator Kit">
-          What&rsquo;s inside the Creator Kit?
+      {/* ===================== START FROM ZERO ===================== */}
+      <section className="mx-auto max-w-4xl px-5 py-16">
+        <SectionHeading kicker="No Overthinking">
+          Start from zero without overthinking what to post.
         </SectionHeading>
-
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {kit.map((item) => (
-            <div
-              key={item.title}
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-200 hover:border-flame/40 hover:bg-white/[0.05] hover:shadow-glow-sm"
-            >
-              <h3 className="text-lg font-bold text-white">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/65">
-                {item.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-white/70">
+          You don&rsquo;t need to spend weeks planning content. Reel Fuel Kit
+          gives you hooks, prompts, captions, ideas, and ready-to-edit video
+          assets so you can start creating faster.
+        </p>
       </section>
 
-      {/* ===================== FREE BONUS VIDEO ASSETS ===================== */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="rounded-3xl border border-flame/25 bg-gradient-to-b from-flame/[0.08] to-transparent p-7 sm:p-10">
-          <SectionHeading kicker="Included Free">
-            Free Bonus: Ready-to-Edit Video Assets
-          </SectionHeading>
+      {/* ===================== PRICING / OFFERS ===================== */}
+      <section id="pricing" className="mx-auto max-w-6xl scroll-mt-8 px-5 py-16">
+        <SectionHeading kicker="Pick Your Kit">Choose your offer</SectionHeading>
 
-          <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-white/70">
-            Along with the Creator Kit, early access buyers will also get access
-            to a bonus Google Drive folder with ready-to-edit short-form video
-            assets.
-          </p>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/60">
+          {pickerNote}
+        </p>
 
-          <ul className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
-            {bonusCategories.map((cat) => (
-              <li
-                key={cat}
-                className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/80"
-              >
-                <span className="mt-0.5 text-flame">▸</span>
-                {cat}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {config.products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
 
-          <p className="mt-8 text-center text-sm font-semibold text-flame">
-            Bonus Drive access will be shared after purchase.
-          </p>
-
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-white/65">
-            Use these assets as inspiration, background clips, or ready-to-edit
-            content for your reels and shorts. The goal is to help creators save
-            time and start posting faster.
-          </p>
-
-          <p className="mx-auto mt-6 max-w-2xl text-balance text-center text-xs leading-relaxed text-white/45">
-            Only use assets that you have the rights to use. We do not guarantee
-            views, followers, monetization, or platform approval. Results depend
-            on your niche, editing, captions, hooks, consistency, and execution.
-          </p>
+        <div className="mx-auto mt-8 max-w-2xl text-center">
+          <p className="text-xs text-white/50">{ctaNote}</p>
+          <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
         </div>
       </section>
 
@@ -273,28 +214,26 @@ export default function Page() {
             Ready to <span className="text-gradient">fuel your next reel?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-white/70">
-            Join early access today and get the Creator Kit launch offer.
+            Pick the Creator Kit, the Reels Bundle, or the Best Value Combo and
+            start creating faster today.
           </p>
 
-          <div className="mx-auto mt-8 max-w-xl">
-            <p className="mb-3 text-sm font-semibold text-white">Choose your checkout:</p>
-            <CTAButtons />
-            <p className="mt-3 text-xs text-white/50">{ctaNote}</p>
-            <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
+          <div className="mx-auto mt-8 flex max-w-md flex-col gap-3">
+            <a
+              href="#pricing"
+              className="inline-flex w-full items-center justify-center rounded-2xl bg-fire px-6 py-4 text-base font-bold text-black shadow-glow transition-transform duration-200 hover:-translate-y-0.5 sm:text-lg"
+            >
+              See pricing &amp; offers
+            </a>
+            <p className="text-xs text-white/50">{deliveryNote}</p>
           </div>
         </div>
 
         {/* Disclaimers */}
         <div className="mx-auto mt-10 max-w-2xl space-y-3 text-center text-xs leading-relaxed text-white/45">
-          <p>
-            This is a digital product. Results depend on your content, niche,
-            consistency, and execution.
-          </p>
-          <p>
-            Bonus assets are provided for creator use and editing inspiration.
-            Users are responsible for ensuring they have the rights to post any
-            asset on their platform.
-          </p>
+          {disclaimers.map((d) => (
+            <p key={d}>{d}</p>
+          ))}
         </div>
       </section>
 

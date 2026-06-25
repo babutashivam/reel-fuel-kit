@@ -11,18 +11,72 @@ export const config = {
     instagramUrl: "https://instagram.com/reelfuelkit",
   },
 
-  // Payment links (open in a new tab)
-  links: {
-    india: "https://razorpay.me/@REELFUELKIT",
-    global: "https://payhip.com/b/nRIMp",
-    // Bonus Google Drive folder — shared with buyers after purchase.
-    // Replace with your real Drive link when ready (not shown on the page).
-    bonusDrive: "https://drive.google.com/your-folder-link-here",
-  },
+  // Bonus Google Drive folder — shared with buyers after purchase.
+  // Replace with your real Drive link when ready (not shown on the page).
+  bonusDrive: "https://drive.google.com/your-folder-link-here",
 
-  // Button labels
-  pricing: {
-    indiaLabel: "🇮🇳 India Early Access — ₹189",
-    globalLabel: "🌍 Global Early Access — $5",
-  },
+  // -----------------------------------------------------------
+  //  PRODUCTS / PRICING
+  //  Each product has an India link + a Global link.
+  //  Replace the PLACEHOLDER_* links with your real
+  //  Razorpay (India) and Payhip (Global) links per product.
+  // -----------------------------------------------------------
+  products: [
+    {
+      id: "creator-kit",
+      name: "Reel Fuel Creator Kit",
+      blurb: "Strategy, hooks, prompts & captions to plan content faster.",
+      priceIndia: "₹189",
+      priceGlobal: "$6",
+      highlight: false,
+      badge: null,
+      features: [
+        "500 viral-style hooks",
+        "200 ChatGPT prompts",
+        "100 ready captions",
+        "30-day content calendar",
+        "50 niche reel ideas",
+        "Weak hook vs strong hook examples",
+      ],
+      // India = Razorpay, Global = Payhip
+      indiaUrl: "https://razorpay.me/@REELFUELKIT",
+      globalUrl: "https://payhip.com/b/nRIMp",
+    },
+    {
+      id: "reels-bundle",
+      name: "5000+ Reels Bundle",
+      blurb: "A massive library of ready-to-edit video assets.",
+      priceIndia: "₹149",
+      priceGlobal: "$6",
+      highlight: false,
+      badge: null,
+      features: [
+        "Money motivation reels",
+        "AI-generated reels",
+        "Football-style reels",
+        "Luxury and wealth reels",
+        "Cat and animal reels",
+        "Background clips for Instagram Reels and YouTube Shorts",
+      ],
+      indiaUrl: "https://razorpay.me/@REELFUELKIT", // TODO: replace with Reels Bundle India link
+      globalUrl: "https://payhip.com/b/PLACEHOLDER", // TODO: replace with Reels Bundle Global link
+    },
+    {
+      id: "combo",
+      name: "Best Value Combo",
+      blurb: "Everything — strategy + assets + bonus drive in one bundle.",
+      priceIndia: "₹299",
+      priceGlobal: "$9",
+      highlight: true,
+      badge: "Best Value",
+      features: [
+        "Reel Fuel Creator Kit",
+        "5000+ Reels Bundle",
+        "Bonus Drive access",
+        "All hooks, prompts, captions, ideas, and video assets in one bundle",
+      ],
+      indiaUrl: "https://razorpay.me/@REELFUELKIT", // TODO: replace with Combo India link
+      globalUrl: "https://payhip.com/b/PLACEHOLDER", // TODO: replace with Combo Global link
+    },
+  ],
 };
