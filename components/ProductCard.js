@@ -22,27 +22,21 @@ export default function ProductCard({ product, offerEnded = false }) {
           : "border-white/10 bg-white/[0.03] hover:border-flame/40 hover:bg-white/[0.05]",
       ].join(" ")}
     >
-      {product.badge ? (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-fire px-4 py-1 text-xs font-extrabold uppercase tracking-wider text-black shadow-glow-sm">
-          {product.badge}
+      {/* Prominent launch-discount badge near the top of the card */}
+      {product.discountBadge ? (
+        <span
+          className={[
+            "absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-5 py-2 text-sm font-extrabold uppercase tracking-wide transition-all",
+            offerEnded
+              ? "border border-white/15 text-white/30 line-through"
+              : "bg-fire text-black shadow-glow ring-2 ring-flame/50 animate-pulseGlow",
+          ].join(" ")}
+        >
+          {product.discountBadge}
         </span>
       ) : null}
 
-      <div className="flex items-start justify-between gap-3">
-        <h3 className="text-xl font-extrabold text-white">{product.name}</h3>
-        {product.discountBadge ? (
-          <span
-            className={[
-              "shrink-0 rounded-full px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide transition-opacity",
-              offerEnded
-                ? "border border-white/15 text-white/30 line-through"
-                : "bg-flame/15 text-flame ring-1 ring-flame/40",
-            ].join(" ")}
-          >
-            {product.discountBadge}
-          </span>
-        ) : null}
-      </div>
+      <h3 className="mt-2 text-xl font-extrabold text-white">{product.name}</h3>
 
       {product.highlightText ? (
         <p className="mt-2 text-sm font-semibold text-flame">{product.highlightText}</p>

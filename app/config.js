@@ -10,12 +10,12 @@
 //  (clicking won't break the page).
 // -------------------------------------------------------------
 export const PAYMENT_LINKS = {
-  creatorIndia: "PASTE_RAZORPAY_CREATOR_749_LINK_HERE",
-  creatorGlobal: "PASTE_PAYHIP_CREATOR_10_99_LINK_HERE",
-  reelsIndia: "PASTE_RAZORPAY_REELS_650_LINK_HERE",
-  reelsGlobal: "PASTE_PAYHIP_REELS_9_99_LINK_HERE",
-  comboIndia: "PASTE_RAZORPAY_COMBO_999_LINK_HERE",
-  comboGlobal: "PASTE_PAYHIP_COMBO_14_99_LINK_HERE",
+  creatorIndia: "https://rzp.io/rzp/uhrFZO92",
+  creatorGlobal: "https://payhip.com/b/gVa7k",
+  reelsIndia: "https://rzp.io/rzp/C7oCc6k",
+  reelsGlobal: "https://payhip.com/b/4wqxF",
+  comboIndia: "https://rzp.io/rzp/08s5qfFi",
+  comboGlobal: "https://payhip.com/b/jdVLT",
 };
 
 // Countdown: 2-hour launch-discount window (in milliseconds).
@@ -57,7 +57,7 @@ export const config = {
     {
       id: "reels-bundle",
       name: "5000+ Reels Bundle",
-      priceIndia: "₹650",
+      priceIndia: "₹649",
       priceGlobal: "$9.99",
       oldPriceIndia: "₹867",
       oldPriceGlobal: "$13.32",
@@ -83,8 +83,8 @@ export const config = {
       priceGlobal: "$14.99",
       oldPriceIndia: "₹1,333",
       oldPriceGlobal: "$19.99",
-      discountBadge: "25% OFF NOW",
-      badge: "BEST VALUE",
+      discountBadge: "BEST VALUE + 25% OFF NOW",
+      badge: null,
       highlight: true,
       highlightText: "Everything inside Creator Kit + Reels Bundle",
       // Grouped includes — shows everything bundled together.
