@@ -7,7 +7,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const title = "Reel Fuel Kit — Hooks, Prompts & 5000+ Reels Bundle";
+const title = "Reel Fuel Kit — Creator Kit + 5000+ Reels Bundle";
 const description =
   "Get Reel Fuel Kit with viral-style hooks, ChatGPT prompts, captions, content ideas, and 5000+ ready-to-edit video assets for Instagram Reels and YouTube Shorts.";
 

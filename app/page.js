@@ -1,15 +1,7 @@
 import Logo from "@/components/Logo";
-import ProductCard from "@/components/ProductCard";
+import PricingSection from "@/components/PricingSection";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { config } from "@/app/config";
-
-const ctaNote =
-  "Choose India if you pay via UPI/cards in India. Choose Global for international checkout.";
-
-const deliveryNote = "After payment, you’ll receive product access instructions.";
-
-const pickerNote =
-  "Choose the Creator Kit for strategy, the Reels Bundle for video assets, or the Combo for everything.";
 
 const steps = [
   "Choose your bundle",
@@ -49,7 +41,6 @@ const disclaimers = [
   "We do not guarantee views, followers, monetization, platform approval, or earnings.",
   "Results depend on your niche, editing, consistency, captions, hooks, and execution.",
   "Users are responsible for ensuring they have the rights to post any asset on their platform.",
-  "Bonus/video assets are provided for creator use and editing inspiration.",
 ];
 
 function SectionHeading({ kicker, children }) {
@@ -67,13 +58,14 @@ function SectionHeading({ kicker, children }) {
   );
 }
 
-function OfferGrid({ compact = false }) {
+function ScrollToPricingButton({ className = "" }) {
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-      {config.products.map((product) => (
-        <ProductCard key={product.id} product={product} compact={compact} />
-      ))}
-    </div>
+    <a
+      href="#pricing"
+      className={`inline-flex items-center justify-center rounded-2xl bg-fire px-8 py-4 text-base font-bold text-black shadow-glow transition-transform duration-200 hover:-translate-y-0.5 sm:text-lg ${className}`}
+    >
+      Pick Your Bundle
+    </a>
   );
 }
 
@@ -105,15 +97,8 @@ export default function Page() {
           massive reels asset bundle.
         </p>
 
-        <p className="mt-4 max-w-2xl text-pretty text-sm font-medium text-white/60">
-          {pickerNote}
-        </p>
-
-        {/* 3 offers right in the hero */}
-        <div className="mt-10 w-full max-w-5xl">
-          <OfferGrid compact />
-          <p className="mt-5 text-xs text-white/50">{ctaNote}</p>
-          <p className="mt-2 text-xs text-white/50">{deliveryNote}</p>
+        <div className="mt-9">
+          <ScrollToPricingButton />
         </div>
 
         <p className="mt-8 max-w-xl text-sm text-white/50">
@@ -122,25 +107,8 @@ export default function Page() {
         </p>
       </section>
 
-      {/* ===================== PRICING / OFFERS ===================== */}
-      <section id="pricing" className="mx-auto max-w-6xl scroll-mt-8 px-5 py-16">
-        <SectionHeading kicker="Pick Your Bundle">Choose your offer</SectionHeading>
-
-        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/60">
-          {pickerNote}
-        </p>
-
-        <div className="mt-12">
-          <OfferGrid />
-        </div>
-
-        <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-white/50">
-          {ctaNote}
-        </p>
-        <p className="mx-auto mt-2 max-w-2xl text-center text-xs text-white/50">
-          {deliveryNote}
-        </p>
-      </section>
+      {/* ============ SINGLE PRICING SECTION (with timer) ============ */}
+      <PricingSection />
 
       {/* ===================== 5000+ REELS BUNDLE ===================== */}
       <section className="mx-auto max-w-6xl px-5 py-16">
@@ -232,7 +200,7 @@ export default function Page() {
       </section>
 
       {/* ===================== FINAL CTA ===================== */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
+      <section className="mx-auto max-w-4xl px-5 py-16">
         <div className="relative overflow-hidden rounded-3xl border border-flame/30 bg-gradient-to-b from-flame/[0.12] to-transparent p-8 text-center sm:p-12">
           <div
             aria-hidden
@@ -245,10 +213,8 @@ export default function Page() {
             Choose your bundle and start building content faster today.
           </p>
 
-          <div className="mt-10">
-            <OfferGrid compact />
-            <p className="mt-5 text-xs text-white/60">{ctaNote}</p>
-            <p className="mt-2 text-xs text-white/60">{deliveryNote}</p>
+          <div className="mt-8">
+            <ScrollToPricingButton />
           </div>
         </div>
 
