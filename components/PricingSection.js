@@ -1,25 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import DeliveryEmailNotice from "@/components/DeliveryEmailNotice";
 import { config, OFFER_DURATION_MS } from "@/app/config";
 
-const STORAGE_KEY = "reelFuelOfferStartTime";
-
 function format2(n) {
   return String(n).padStart(2, "0");
-}
-
-function getRemaining() {
-  if (typeof window === "undefined") return OFFER_DURATION_MS;
-  let start = Number(window.localStorage.getItem(STORAGE_KEY));
-  if (!start || Number.isNaN(start)) {
-    start = Date.now();
-    window.localStorage.setItem(STORAGE_KEY, String(start));
-  }
-  const remaining = start + OFFER_DURATION_MS - Date.now();
-  return remaining > 0 ? remaining : 0;
 }
 
 function TimePart({ value, label }) {
@@ -36,12 +23,20 @@ function TimePart({ value, label }) {
 }
 
 export default function PricingSection() {
-  // `null` until mounted on the client to avoid hydration mismatch.
+  // Fresh 2-hour countdown on every page load — no localStorage.
+  const endTimeRef = useRef(null);
   const [remaining, setRemaining] = useState(null);
 
   useEffect(() => {
-    setRemaining(getRemaining());
-    const id = setInterval(() => setRemaining(getRemaining()), 1000);
+    endTimeRef.current = Date.now() + OFFER_DURATION_MS;
+
+    const tick = () => {
+      const left = Math.max(0, endTimeRef.current - Date.now());
+      setRemaining(left);
+    };
+
+    tick();
+    const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
 
@@ -79,7 +74,7 @@ export default function PricingSection() {
           )}
 
           <p className="mt-5 text-xs text-white/50">
-            Launch pricing is active during this window.
+            25% off is active during this window.
           </p>
         </div>
       </div>
@@ -95,7 +90,7 @@ export default function PricingSection() {
       </div>
 
       {/* Cards */}
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch">
         {config.products.map((product) => (
           <ProductCard key={product.id} product={product} offerEnded={ended} />
         ))}

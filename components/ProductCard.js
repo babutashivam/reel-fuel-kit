@@ -4,6 +4,7 @@ import { isPlaceholderLink } from "@/app/config";
 // `product` comes from config.products. `offerEnded` dims the discount badges.
 export default function ProductCard({ product, offerEnded = false }) {
   const isHighlight = product.highlight;
+  const isCombo = product.id === "combo";
 
   const indiaHref = isPlaceholderLink(product.indiaUrl) ? "#" : product.indiaUrl;
   const globalHref = isPlaceholderLink(product.globalUrl) ? "#" : product.globalUrl;
@@ -16,36 +17,43 @@ export default function ProductCard({ product, offerEnded = false }) {
   return (
     <div
       className={[
-        "relative flex h-full flex-col rounded-3xl border p-6 sm:p-7 transition-all duration-200",
+        "relative flex h-full flex-col rounded-3xl border p-6 pt-10 sm:p-7 sm:pt-12 transition-all duration-200",
         isHighlight
-          ? "border-flame/60 bg-gradient-to-b from-flame/[0.12] to-transparent shadow-glow"
+          ? "z-10 border-flame/80 bg-gradient-to-b from-flame/[0.18] via-flame/[0.08] to-transparent shadow-badge-glow-lg ring-2 ring-flame/50 md:scale-[1.03]"
           : "border-white/10 bg-white/[0.03] hover:border-flame/40 hover:bg-white/[0.05]",
       ].join(" ")}
     >
-      {/* Prominent launch-discount badge near the top of the card */}
+      {/* Launch-discount badge — top of card, impossible to miss */}
       {product.discountBadge ? (
         <span
           className={[
-            "absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-5 py-2 text-sm font-extrabold uppercase tracking-wide transition-all",
+            "absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full font-extrabold uppercase tracking-wider transition-all",
+            isCombo ? "-top-5 px-4 py-2.5 text-[11px] sm:-top-6 sm:px-6 sm:py-3 sm:text-sm" : "-top-5 px-6 py-2.5 text-sm sm:-top-6 sm:px-7 sm:py-3 sm:text-base",
             offerEnded
-              ? "border border-white/15 text-white/30 line-through"
-              : "bg-fire text-black shadow-glow ring-2 ring-flame/50 animate-pulseGlow",
+              ? "border border-white/15 bg-white/5 text-white/30 line-through shadow-none"
+              : "bg-fire text-black shadow-badge-glow ring-2 ring-gold/70 animate-badgePulse",
           ].join(" ")}
         >
           {product.discountBadge}
         </span>
       ) : null}
 
-      <h3 className="mt-2 text-xl font-extrabold text-white">{product.name}</h3>
+      <h3 className={`font-extrabold text-white ${isCombo ? "text-2xl" : "text-xl"}`}>
+        {product.name}
+      </h3>
 
       {product.highlightText ? (
-        <p className="mt-2 text-sm font-semibold text-flame">{product.highlightText}</p>
+        <p className="mt-2 text-sm font-semibold text-flame sm:text-base">
+          {product.highlightText}
+        </p>
       ) : null}
 
       {/* Pricing */}
       <div className="mt-5">
         <div className="flex items-baseline gap-2">
-          <span className="text-3xl font-extrabold text-white">{product.priceIndia}</span>
+          <span className={`font-extrabold text-white ${isCombo ? "text-4xl" : "text-3xl"}`}>
+            {product.priceIndia}
+          </span>
           {product.oldPriceIndia ? (
             <span className="text-sm text-white/40 line-through">
               {product.oldPriceIndia}
@@ -95,7 +103,10 @@ export default function ProductCard({ product, offerEnded = false }) {
         <a
           href={indiaHref}
           {...linkProps(indiaIsLive)}
-          className="inline-flex w-full items-center justify-center rounded-2xl bg-fire px-5 py-3.5 text-sm font-bold text-black shadow-glow-sm transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-flame/70"
+          className={[
+            "inline-flex w-full items-center justify-center rounded-2xl bg-fire px-5 py-3.5 text-sm font-bold text-black transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-flame/70",
+            isCombo ? "shadow-badge-glow" : "shadow-glow-sm",
+          ].join(" ")}
         >
           🇮🇳 India {product.priceIndia}
         </a>
