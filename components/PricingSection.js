@@ -48,8 +48,25 @@ export default function PricingSection() {
 
   return (
     <section id="pricing" className="mx-auto max-w-6xl scroll-mt-8 px-5 py-16">
-      {/* Countdown timer */}
+      {/* Scarcity banner — above Pick Your Bundle */}
+      <div className="mx-auto mb-10 max-w-3xl rounded-3xl border border-flame/50 bg-gradient-to-r from-flame/[0.14] via-ember/10 to-flame/[0.14] px-5 py-6 text-center shadow-glow sm:px-8 sm:py-7">
+        <p className="text-lg font-extrabold uppercase tracking-[0.15em] text-white sm:text-xl">
+          FIRST 100 BUYERS ONLY
+        </p>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/70">
+          Launch pricing is active for the first batch. Bonus access closes when
+          spots are filled.
+        </p>
+      </div>
+
+      {/* Spots badge + countdown timer */}
       <div className="mx-auto mb-12 max-w-xl">
+        <div className="mb-5 flex justify-center">
+          <span className="inline-flex rounded-full bg-fire px-5 py-2.5 text-sm font-extrabold uppercase tracking-wide text-black shadow-badge-glow ring-2 ring-gold/70 animate-badgePulse sm:px-7 sm:py-3 sm:text-base">
+            20 BONUS SPOTS LEFT
+          </span>
+        </div>
+
         <div className="relative overflow-hidden rounded-3xl border border-flame/40 bg-charcoal/80 p-6 text-center shadow-glow sm:p-8">
           <div
             aria-hidden
@@ -73,8 +90,9 @@ export default function PricingSection() {
             </div>
           )}
 
-          <p className="mt-5 text-xs text-white/50">
-            25% off is active during this window.
+          <p className="mt-5 text-xs leading-relaxed text-white/55">
+            Offer timer resets when you visit. Launch discount is active during
+            this window.
           </p>
         </div>
       </div>
@@ -82,10 +100,11 @@ export default function PricingSection() {
       {/* Heading */}
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-balance text-3xl font-extrabold leading-tight sm:text-4xl">
-          Pick Your Bundle
+          Pick Your Bundle Before The Launch Spots Close
         </h2>
         <p className="mt-4 text-base text-white/65">
-          Choose your offer before the timer runs out.
+          Only the first 100 launch buyers get this pricing. After that, prices
+          may increase.
         </p>
       </div>
 

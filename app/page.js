@@ -103,8 +103,8 @@ export default function Page() {
         </div>
 
         <p className="mt-8 max-w-xl text-sm text-white/50">
-          Built for creators, niche pages, freelancers, coaches, and small
-          businesses.
+          Built to help creators start from zero with hooks, prompts, captions,
+          ideas, and ready-to-edit video assets.
         </p>
       </section>
 

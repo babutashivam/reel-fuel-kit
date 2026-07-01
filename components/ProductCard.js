@@ -17,7 +17,7 @@ export default function ProductCard({ product, offerEnded = false }) {
   return (
     <div
       className={[
-        "relative flex h-full flex-col rounded-3xl border p-6 pt-10 sm:p-7 sm:pt-12 transition-all duration-200",
+        "relative flex h-full flex-col rounded-3xl border p-6 pt-12 sm:p-7 sm:pt-14 transition-all duration-200",
         isHighlight
           ? "z-10 border-flame/80 bg-gradient-to-b from-flame/[0.18] via-flame/[0.08] to-transparent shadow-badge-glow-lg ring-2 ring-flame/50 md:scale-[1.03]"
           : "border-white/10 bg-white/[0.03] hover:border-flame/40 hover:bg-white/[0.05]",
@@ -28,10 +28,12 @@ export default function ProductCard({ product, offerEnded = false }) {
         <span
           className={[
             "absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full font-extrabold uppercase tracking-wider transition-all",
-            isCombo ? "-top-5 px-4 py-2.5 text-[11px] sm:-top-6 sm:px-6 sm:py-3 sm:text-sm" : "-top-5 px-6 py-2.5 text-sm sm:-top-6 sm:px-7 sm:py-3 sm:text-base",
+            isCombo
+              ? "-top-6 px-5 py-3 text-xs sm:-top-7 sm:px-7 sm:py-3.5 sm:text-sm"
+              : "-top-6 px-7 py-3 text-base sm:-top-7 sm:px-8 sm:py-3.5 sm:text-lg",
             offerEnded
               ? "border border-white/15 bg-white/5 text-white/30 line-through shadow-none"
-              : "bg-fire text-black shadow-badge-glow ring-2 ring-gold/70 animate-badgePulse",
+              : "bg-fire text-black shadow-badge-glow-lg ring-[3px] ring-gold/80 animate-badgePulse",
           ].join(" ")}
         >
           {product.discountBadge}
