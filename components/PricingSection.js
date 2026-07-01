@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
+import DeliveryEmailNotice from "@/components/DeliveryEmailNotice";
 import { config, OFFER_DURATION_MS } from "@/app/config";
 
 const STORAGE_KEY = "reelFuelOfferStartTime";
@@ -105,6 +106,8 @@ export default function PricingSection() {
         international checkout. After payment, you’ll receive product access
         instructions.
       </p>
+
+      <DeliveryEmailNotice className="mt-4" />
     </section>
   );
 }

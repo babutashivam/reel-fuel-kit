@@ -1,4 +1,5 @@
 import Logo from "@/components/Logo";
+import DeliveryEmailNotice from "@/components/DeliveryEmailNotice";
 import PricingSection from "@/components/PricingSection";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { config } from "@/app/config";
@@ -218,8 +219,10 @@ export default function Page() {
           </div>
         </div>
 
+        <DeliveryEmailNotice className="mt-10" />
+
         {/* Disclaimers */}
-        <div className="mx-auto mt-10 max-w-2xl space-y-3 text-center text-xs leading-relaxed text-white/45">
+        <div className="mx-auto mt-6 max-w-2xl space-y-3 text-center text-xs leading-relaxed text-white/45">
           {disclaimers.map((d) => (
             <p key={d}>{d}</p>
           ))}
